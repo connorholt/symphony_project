@@ -27,4 +27,19 @@ class RecordController extends Controller
 
         return new Response('Saved new product with id ' . $product->getId());
     }
+
+    /**
+     * @Route("/record/find")
+     */
+    public function findAction()
+    {
+        $em = $this->getDoctrine()->getRepository('AppBundle:Record');
+
+        $recordA = $em->find(3);
+        $recordB = $em->find(3);
+
+
+
+        var_dump($recordA === $recordB);
+    }
 }
